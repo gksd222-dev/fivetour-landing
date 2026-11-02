@@ -49,7 +49,7 @@ window.LANDING_DATA = {
 
   types: [
     { name: '미식 수집가', desc: '여행의 기억은 늘 맛으로 남는 타입. 현지 맛집이 일정에 들어간 다섯팩이 잘 맞아요.', style: '다섯팩 2.0', styleIdx: 0, img: 'ph-colo' },
-    { name: '골목 탐험가', desc: '지도보다 발길을 믿는 타입. 큰 동선은 맡기고, 자유 시간에 골목을 누비세요.', style: '내맘대로', styleIdx: 3, img: 'ph-swiss' },
+    { name: '골목 탐험가', desc: '지도보다 발길을 믿는 타입. 큰 동선은 맡기고 자유 시간에 골목을 누비세요.', style: '내맘대로', styleIdx: 3, img: 'ph-swiss' },
     { name: '함께라서 여행가', desc: '누구와 가느냐가 제일 중요한 타입. 우리 일행만 다니는 단독 여행을 추천해요.', style: '우리끼리', styleIdx: 2, img: 'ph-taj' },
     { name: '느긋한 휴양가', desc: '쉬러 떠나는 여행이 진짜 여행인 타입. 숙소와 동선이 여유로운 프리미엄이 어울려요.', style: '프리미엄', styleIdx: 4, img: 'ph-fuji' }
   ],
