@@ -309,7 +309,10 @@
       quizBox.innerHTML =
         '<div class="result fade">' +
         '<div class="result__card">' +
+        '<div class="result__media">' +
+        '<div class="ph ' + r.img + ' result__blur" aria-hidden="true"></div>' +
         '<div class="ph ' + r.img + ' result__img" role="img" aria-label="' + esc(r.name) + ' 대표 장면"></div>' +
+        '</div>' +
         '<div class="result__body">' +
         '<div class="mono-row"><span>MY TRAVEL TYPE</span><span>DASEOTOUR</span></div>' +
         '<div class="dash"></div>' +
