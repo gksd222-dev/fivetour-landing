@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>여행은 나답게, 걱정은 하나에게 | 하나투어</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="preload" as="image" href="assets/img/colo.jpg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">본문 바로가기</a>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="wrap header__bar">
+    <div class="header__left">
+      <a href="#top" class="logo">하나투어</a>
+      <nav class="nav-desk header__nav" aria-label="하나투어 주요 메뉴">
+        <a href="#">해외여행</a>
+        <a href="#">국내여행</a>
+        <a href="#">호텔</a>
+        <a href="#">항공</a>
+        <a href="#">투어·티켓</a>
+      </nav>
+    </div>
+    <div class="header__right">
+      <a class="nav-desk btn-app" href="#closing">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>앱 다운로드
+      </a>
+      <a class="nav-mob btn-app-mob" href="#closing">앱 받기</a>
+      <button class="nav-mob btn-menu" id="menu-btn" aria-label="전체 메뉴 열기" aria-expanded="false" aria-controls="menu-mob">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="menu-mob" id="menu-mob" aria-label="전체 메뉴" hidden>
+    <a href="#">해외여행</a>
+    <a href="#">국내여행</a>
+    <a href="#">호텔</a>
+    <a href="#">항공</a>
+    <a href="#">투어·티켓</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- S1 Hero -->
+<section id="top" class="hero" aria-label="캠페인 히어로">
+  <img class="hero__img" id="hero-img" src="assets/img/colo.jpg" alt="해 질 녘 로마 콜로세움으로 이어지는 돌길" style="object-position:center 60%">
+  <div class="hero__shade" aria-hidden="true"></div>
+  <span class="hero__tag">임시 이미지 · 실제는 1인칭 15초 영상</span>
+  <div class="wrap hero__inner">
+    <div class="hero-grid">
+      <div class="hero__copy">
+        <span class="caption-time" id="hero-caption">오후 6:20 · 로마 콜로세움</span>
+        <h1 class="h1">여행은 나답게,<br>걱정은 하나에게</h1>
+        <p class="hero__lead">쇼핑 없는 하나팩부터 내 취향대로 고르는 여행까지.<br>일정은 하나투어가 지키고, 장면은 당신이 고르세요.</p>
+        <div class="hero__ctas">
+          <a href="#styles" class="btn-primary">내 여행 찾기</a>
+          <a href="#compare" class="link-light">하나팩 2.0 알아보기</a>
+        </div>
+      </div>
+      <div class="ticket">
+        <div class="ticket__card">
+          <div class="mono-row"><span>WORRY CHECK-OUT</span><span>HANAPACK 2.0</span></div>
+          <div class="dash"></div>
+          <div class="ticket__list" id="worries"></div>
+          <div class="dash"></div>
+          <span class="ticket__ok" id="worry-ok">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg>걱정은 하나에게 · 확정
+          </span>
+        </div>
+        <div class="ticket__ctrl">
+          <div class="scene-bars" id="scene-bars" aria-hidden="true"></div>
+          <button class="btn-pause" id="pause-btn" aria-label="배경 영상 일시정지">
+            <svg class="i-pause" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            <svg class="i-play" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M7 4l13 8-13 8z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S2 Compare -->
+<section id="compare" class="sec">
+  <div class="wrap stack-28">
+    <div class="sec-head">
+      <div class="stack-10">
+        <h2 class="h2">예전 패키지 vs 지금 하나팩</h2>
+        <p class="lead">손잡이를 밀거나 버튼을 눌러 비교해 보세요.</p>
+      </div>
+      <div class="seg" role="group" aria-label="비교 화면 전환">
+        <button id="show-old" aria-pressed="false">예전</button>
+        <button id="show-new" aria-pressed="false">지금</button>
+      </div>
+    </div>
+    <div class="cmp" id="cmp">
+      <div class="cmp__layer cmp__now">
+        <strong class="cmp__title cmp__title--now">지금 하나팩 2.0</strong>
+        <div class="stack-12" id="cmp-now"></div>
+      </div>
+      <div class="cmp__layer cmp__old" id="cmp-old-layer" aria-hidden="true">
+        <strong class="cmp__title">예전 패키지</strong>
+        <div class="stack-12" id="cmp-old"></div>
+      </div>
+      <div class="cmp__line" id="cmp-line" aria-hidden="true"></div>
+      <div class="cmp__knob" id="cmp-knob" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>
+      </div>
+    </div>
+    <div class="cmp__range">
+      <label for="cmp-range">예전 ← 비교 위치 → 지금</label>
+      <input id="cmp-range" type="range" min="0" max="100" step="10" value="50">
+    </div>
+    <span class="note">* 예전 패키지 항목은 일반적인 인식을 표현한 가안 문구입니다.</span>
+  </div>
+</section>
+
+<!-- S3 Proof -->
+<section id="proof" class="sec sec--tint">
+  <div class="wrap stack-32">
+    <h2 class="h2">믿고 떠나도 되는 이유</h2>
+    <div class="proof" id="proof-grid">
+      <div class="card proof__card">
+        <span class="proof__num" aria-hidden="true"><span data-count="100">100</span>%</span>
+        <span class="sr-only">100%</span>
+        <strong class="proof__title">일정을 지키지 않으면 배상</strong>
+        <p class="body">하나팩 2.0 개런티 프로그램. 약속한 일정이 지켜지지 않으면 100% 배상합니다.</p>
+        <a href="#" class="link proof__foot">보장 기준 자세히 보기</a>
+      </div>
+      <div class="card proof__card">
+        <span class="proof__num" aria-hidden="true"><span data-count="22">22</span>년</span>
+        <span class="sr-only">22년</span>
+        <strong class="proof__title">연속 여행사 브랜드 1위</strong>
+        <div class="badges">
+          <span class="badge">2026 K-BPI</span>
+          <span class="badge">브랜드스타</span>
+          <span class="badge">국가브랜드대상 NCI 1위</span>
+        </div>
+        <span class="note proof__foot">출처: 한국능률협회컨설팅(K-BPI) 외</span>
+      </div>
+      <div class="card proof__card">
+        <span class="proof__num" aria-hidden="true"><span data-count="24">24</span>h</span>
+        <span class="sr-only">24시간</span>
+        <strong class="proof__title">현지 안전·비상 대응</strong>
+        <p class="body">현지 비상 연락망과 한국어 상담을 24시간 운영합니다. (가안)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4 Styles -->
+<section id="styles" class="sec">
+  <div class="wrap stack-28">
+    <div class="stack-10">
+      <h2 class="h2">여행 방식 고르기</h2>
+      <p class="lead">믿고 맡기는 방법도 취향대로. 카드를 누르면 대표 상품이 바뀌어요.</p>
+    </div>
+    <div class="styles" role="tablist" aria-label="여행 방식" id="style-tabs"></div>
+    <div class="products" role="tabpanel" id="style-panel">
+      <div class="products__head">
+        <strong id="style-title"></strong>
+        <a href="#" class="link" id="style-all"></a>
+      </div>
+      <div class="products__grid" id="products"></div>
+      <span class="note">* 상품명·가격·평점은 시안용 예시입니다.</span>
+    </div>
+  </div>
+</section>
+
+<!-- S5 Quiz -->
+<section id="quiz" class="sec sec--tint">
+  <div class="wrap split">
+    <div class="stack-16">
+      <h2 class="h2">나의 여행 취향 테스트</h2>
+      <p class="lead">5문항 · 약 1분. 결과는 이미지로 저장하거나 카카오톡으로 보낼 수 있어요.</p>
+      <div class="progress">
+        <div class="progress__track" role="progressbar" aria-label="테스트 진행률" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="q-bar">
+          <div class="progress__fill" id="q-fill"></div>
+        </div>
+        <span class="mono" id="q-count">0 / 5</span>
+      </div>
+    </div>
+    <div class="quiz-box" id="quiz-box"></div>
+  </div>
+</section>
+
+<!-- S6 H-AI -->
+<section id="hai" class="sec">
+  <div class="wrap split">
+    <div class="stack-16">
+      <h2 class="h2">H-AI에게 물어보기</h2>
+      <p class="lead">하나투어 AI 여행 에이전트가 일정을 짜고 상품을 골라 드려요.</p>
+      <span class="note note--15 mt-8">추천 질문</span>
+      <div class="chips" id="chips"></div>
+      <form class="ask" id="ask-form">
+        <label for="hai-input">여행 고민을 적어 주세요</label>
+        <div class="ask__field">
+          <input id="hai-input" type="text" placeholder="예: 3월에 부모님과 4일" autocomplete="off">
+          <button type="submit" aria-label="질문 보내기">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="ai-panel" aria-live="polite">
+      <span class="note note--15">샘플 일정 미리보기</span>
+      <div id="ai-body"></div>
+    </div>
+  </div>
+</section>
+
+<!-- S7 Reviews -->
+<section id="reviews" class="sec">
+  <div class="wrap sec-head mb-28">
+    <div class="stack-10">
+      <h2 class="h2">여행자의 장면</h2>
+      <span class="body">★ 4.8 · 12,480개 후기 (예시) · #나답게하나투어</span>
+    </div>
+    <div class="arrows">
+      <button class="btn-round" id="rev-prev" aria-label="이전 후기"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <button class="btn-round" id="rev-next" aria-label="다음 후기"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+  <div class="scroller" id="reviews-list"></div>
+  <p class="wrap note mt-14">* 후기와 게시물은 시안용 예시입니다.</p>
+</section>
+
+<!-- S8 Closing -->
+<section id="closing" class="sec sec--tint">
+  <div class="wrap closing">
+    <div class="closing__main">
+      <h2 class="h2">걱정은 체크아웃,<br>이제 떠날 차례예요</h2>
+      <div class="coupon">
+        <div class="mono-row"><span>CAMPAIGN COUPON</span><span>~2027.02.28</span></div>
+        <div class="dash"></div>
+        <span class="coupon__amt">50,000원</span>
+        <span class="body">하나팩 2.0 100만 원 이상 결제 시 · 선착순 10,000장 (가안)</span>
+        <span class="coupon__stamp fade" id="coupon-stamp" hidden>발급 완료 ✓</span>
+      </div>
+      <div class="row-12">
+        <a href="#styles" class="btn-primary">내 여행 찾기</a>
+        <button class="btn-outline" id="coupon-btn">쿠폰 받기</button>
+      </div>
+      <div class="nav-mob stores">
+        <a href="#" class="btn-store">App Store</a>
+        <a href="#" class="btn-store">Google Play</a>
+      </div>
+    </div>
+    <div class="nav-desk qr-card">
+      <div class="qr" role="img" aria-label="앱 설치 QR 코드 자리" id="qr"></div>
+      <span class="qr-card__text">휴대폰 카메라로 스캔하면<br>하나투어 앱으로 이동해요</span>
+      <span class="note">QR은 시안용 무늬입니다</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <strong class="footer__logo">하나투어</strong>
+    <span>회사 정보 · 사업자 정보 · 관광사업자 등록 정보 (시안)</span>
+    <span>고객센터 1577-0000 (예시) · 평일 09:00–18:00</span>
+    <div class="footer__links"><a href="#">이용약관</a><a href="#"><b>개인정보처리방침</b></a><a href="#">쿠폰 유의사항</a></div>
+    <span>캠페인 기간 2026.12.15 ~ 2027.06.30 · © HANATOUR</span>
+  </div>
+</footer>
+
+<div class="toast-wrap" aria-live="polite" id="toast"></div>
+
+<nav class="mbar" aria-label="빠른 이동">
+  <a href="#closing" class="mbar__coupon">쿠폰</a>
+  <a href="#styles" class="mbar__cta">내 여행 찾기</a>
+</nav>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
