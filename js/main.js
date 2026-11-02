@@ -66,13 +66,41 @@
   }
   renderPause();
   pauseBtn.addEventListener('click', function () { paused = !paused; renderPause(); });
-  if (!reduce) {
-    setInterval(function () {
+  var sceneTimer;
+  function startSceneTimer() {
+    if (reduce) return;
+    clearInterval(sceneTimer);
+    sceneTimer = setInterval(function () {
       if (paused) return;
       scene = (scene + 1) % D.scenes.length;
       renderScene();
     }, 5000);
   }
+  // 이전/다음 버튼·스와이프로 장면 이동 (수동 이동 후 5초 타이머 다시 시작)
+  function goScene(dir) {
+    var n = D.scenes.length;
+    scene = (scene + dir + n) % n;
+    renderScene();
+    startSceneTimer();
+  }
+  startSceneTimer();
+  var hero = $('top');
+  hero.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-scene]');
+    if (b) goScene(Number(b.dataset.scene));
+  });
+  var touchX = null, touchY = null;
+  hero.addEventListener('touchstart', function (e) {
+    if (e.target.closest('a, button')) { touchX = null; return; }
+    touchX = e.touches[0].clientX; touchY = e.touches[0].clientY;
+  }, { passive: true });
+  hero.addEventListener('touchend', function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    var dy = e.changedTouches[0].clientY - touchY;
+    touchX = null;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) goScene(dx < 0 ? 1 : -1);
+  }, { passive: true });
 
   var worriesEl = $('worries');
   worriesEl.innerHTML = D.worries.map(function (t) {

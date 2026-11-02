@@ -53,6 +53,8 @@
   <img class="hero__bg" id="hero-bg" src="assets/img/colo.jpg" alt="" aria-hidden="true">
   <img class="hero__img" id="hero-img" src="assets/img/colo.jpg" alt="해 질 녘 로마 콜로세움으로 이어지는 돌길" style="object-position:center 60%">
   <div class="hero__shade" aria-hidden="true"></div>
+  <button class="btn-scene hero__nav hero__nav--prev" data-scene="-1" aria-label="이전 장면"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="btn-scene hero__nav hero__nav--next" data-scene="1" aria-label="다음 장면"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
   <span class="hero__tag">임시 이미지 · 실제는 1인칭 15초 영상</span>
   <div class="wrap hero__inner">
     <div class="hero-grid">
@@ -76,7 +78,9 @@
           </span>
         </div>
         <div class="ticket__ctrl">
+          <button class="btn-scene scene-inline" data-scene="-1" aria-label="이전 장면"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button>
           <div class="scene-bars" id="scene-bars" aria-hidden="true"></div>
+          <button class="btn-scene scene-inline" data-scene="1" aria-label="다음 장면"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
           <button class="btn-pause" id="pause-btn" aria-label="배경 영상 일시정지">
             <svg class="i-pause" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
             <svg class="i-play" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M7 4l13 8-13 8z"/></svg>
