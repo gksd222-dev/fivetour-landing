@@ -17,10 +17,10 @@ window.LANDING_DATA = {
   ],
 
   styles: [
-    { name: '하나팩 2.0', desc: '쇼핑 없이, 경비 포함으로 편하게', img: 'ph-fuji', products: [
-      { name: '하나팩 2.0 도쿄·후지산 4일', date: '2027.03.14', rating: '4.8 (1,284)', price: '899,000', img: 'ph-fuji', caption: '오전 10:15 · 후지요시다' },
-      { name: '하나팩 2.0 로마·피렌체 9일', date: '2027.04.05', rating: '4.9 (418)', price: '3,290,000', img: 'ph-colo', caption: '오후 6:20 · 로마' },
-      { name: '하나팩 2.0 스위스 일주 8일', date: '2027.05.10', rating: '4.8 (356)', price: '4,590,000', img: 'ph-swiss', caption: '오전 7:20 · 알프스 마을' } ] },
+    { name: '다섯팩 2.0', desc: '쇼핑 없이, 경비 포함으로 편하게', img: 'ph-fuji', products: [
+      { name: '다섯팩 2.0 도쿄·후지산 4일', date: '2027.03.14', rating: '4.8 (1,284)', price: '899,000', img: 'ph-fuji', caption: '오전 10:15 · 후지요시다' },
+      { name: '다섯팩 2.0 로마·피렌체 9일', date: '2027.04.05', rating: '4.9 (418)', price: '3,290,000', img: 'ph-colo', caption: '오후 6:20 · 로마' },
+      { name: '다섯팩 2.0 스위스 일주 8일', date: '2027.05.10', rating: '4.8 (356)', price: '4,590,000', img: 'ph-swiss', caption: '오전 7:20 · 알프스 마을' } ] },
     { name: '밍글링 투어', desc: '취향 같은 2030과 함께', img: 'ph-colo', products: [
       { name: '밍글링 로마 미식 클래스 6일', date: '2027.03.21', rating: '4.7 (212)', price: '2,190,000', img: 'ph-colo', caption: '오후 7:40 · 트라스테베레' },
       { name: '밍글링 교토 사진 산책 4일', date: '2027.04.02', rating: '4.8 (305)', price: '1,090,000', img: 'ph-fuji', caption: '오전 9:40 · 산넨자카' },
@@ -48,7 +48,7 @@ window.LANDING_DATA = {
   ],
 
   types: [
-    { name: '미식 수집가', desc: '여행의 기억은 늘 맛으로 남는 타입. 현지 맛집이 일정에 들어간 하나팩이 잘 맞아요.', style: '하나팩 2.0', styleIdx: 0, img: 'ph-colo' },
+    { name: '미식 수집가', desc: '여행의 기억은 늘 맛으로 남는 타입. 현지 맛집이 일정에 들어간 다섯팩이 잘 맞아요.', style: '다섯팩 2.0', styleIdx: 0, img: 'ph-colo' },
     { name: '골목 탐험가', desc: '지도보다 발길을 믿는 타입. 큰 동선은 맡기고, 자유 시간에 골목을 누비세요.', style: '내맘대로', styleIdx: 3, img: 'ph-swiss' },
     { name: '함께라서 여행가', desc: '누구와 가느냐가 제일 중요한 타입. 우리 일행만 다니는 단독 여행을 추천해요.', style: '우리끼리', styleIdx: 2, img: 'ph-taj' },
     { name: '느긋한 휴양가', desc: '쉬러 떠나는 여행이 진짜 여행인 타입. 숙소와 동선이 여유로운 프리미엄이 어울려요.', style: '프리미엄', styleIdx: 4, img: 'ph-fuji' }
@@ -66,9 +66,9 @@ window.LANDING_DATA = {
   },
 
   reviews: [
-    { img: 'ph-fuji', alt: '벚꽃과 후지산', caption: '오전 10:15 · 후지요시다', head: '★ 5.0 · 하나팩 2.0 도쿄·후지산', text: '쇼핑 일정이 없어서 하루가 온전히 제 것이었어요.', by: '@trip_minji · 2026년 10월 (예시)' },
+    { img: 'ph-fuji', alt: '벚꽃과 후지산', caption: '오전 10:15 · 후지요시다', head: '★ 5.0 · 다섯팩 2.0 도쿄·후지산', text: '쇼핑 일정이 없어서 하루가 온전히 제 것이었어요.', by: '@trip_minji · 2026년 10월 (예시)' },
     { img: 'ph-colo', alt: '노을 진 콜로세움', caption: '오후 6:20 · 로마', head: '#나답게다섯투어', text: '콜로세움 앞 노을, 가이드님이 알려준 시간 그대로.', by: '@walk_rome · 인스타그램 (예시)' },
-    { img: 'ph-swiss', alt: '스위스 산골 마을', caption: '오전 7:20 · 알프스 마을', head: '★ 4.9 · 하나팩 2.0 스위스 일주', text: '시내 중심 호텔이라 아침 산책이 쉬웠어요.', by: '@slow_alps · 2026년 9월 (예시)' },
+    { img: 'ph-swiss', alt: '스위스 산골 마을', caption: '오전 7:20 · 알프스 마을', head: '★ 4.9 · 다섯팩 2.0 스위스 일주', text: '시내 중심 호텔이라 아침 산책이 쉬웠어요.', by: '@slow_alps · 2026년 9월 (예시)' },
     { img: 'ph-taj', alt: '타지마할', caption: '오전 7:30 · 아그라', head: '★ 4.8 · 우리끼리 인도 7일', text: '우리 가족만 다녀서 부모님도 편하셨어요.', by: '@hana_family · 2026년 8월 (예시)' },
     { img: 'ph-giza', alt: '기자 피라미드', caption: '오후 5:10 · 기자', head: '#나답게다섯투어', text: '팁 걱정 없이 사막 노을만 보면 됐던 날.', by: '@desert_sun · 인스타그램 (예시)' },
     { img: 'ph-colo', alt: '로마 돌길', caption: '오후 8:00 · 트라스테베레', head: '★ 4.7 · 밍글링 로마 미식', text: '취향 같은 사람들과 먹고 걷는 일주일이었어요.', by: '@pasta_lover · 2026년 7월 (예시)' }

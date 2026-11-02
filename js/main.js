@@ -40,6 +40,7 @@
 
   /* ---------- S1 Hero: scenes + worry check-out ticket ---------- */
   var heroImg = $('hero-img');
+  var heroBg = $('hero-bg');
   heroImg.addEventListener('error', function () { heroImg.classList.add('is-missing'); });
   heroImg.addEventListener('load', function () { heroImg.classList.remove('is-missing'); });
 
@@ -50,6 +51,7 @@
   function renderScene() {
     var s = D.scenes[scene];
     heroImg.src = s.src;
+    heroBg.src = s.src;
     heroImg.alt = s.alt;
     heroImg.style.objectPosition = s.pos;
     $('hero-caption').textContent = s.caption;
@@ -108,7 +110,7 @@
     cmp.style.setProperty('--pos', p + '%');
     range.value = p;
     range.setAttribute('aria-valuetext',
-      p >= 100 ? '예전 패키지 전체' : p <= 0 ? '지금 하나팩 전체' : '예전 ' + p + '%, 지금 ' + (100 - p) + '%');
+      p >= 100 ? '예전 패키지 전체' : p <= 0 ? '지금 다섯팩 전체' : '예전 ' + p + '%, 지금 ' + (100 - p) + '%');
     showOld.setAttribute('aria-pressed', p === 100 ? 'true' : 'false');
     showNew.setAttribute('aria-pressed', p === 0 ? 'true' : 'false');
   }

@@ -1,5 +1,5 @@
 /* ==========================================================
-   다섯투어 캠페인 랜딩 — "여행은 나답게, 걱정은 하나에게"
+   다섯투어 캠페인 랜딩 — "여행은 나답게, 걱정은 다섯에게"
    Breakpoints: 600 (tablet) · 1024 (PC) · 1280 (1200 centered)
    ========================================================== */
 
@@ -121,6 +121,13 @@ button { font-family: inherit; color: var(--ink); }
 .hero { position: relative; overflow: hidden; background-color: #2E3B49; height: calc(100svh - 136px); min-height: 620px; max-height: 900px; }
 .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
 .hero__img.is-missing { visibility: hidden; }
+/* 원본 사진이 작아(가로 약 735px) 넓은 화면에서 cover로 늘리면 깨짐 →
+   800px 이상에서는 원본을 비율 그대로(contain) 두고, 같은 사진을 흐리게 깔아 빈 곳을 채움 */
+.hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: blur(28px) brightness(.75); transform: scale(1.12); display: none; }
+@media (min-width: 800px) {
+  .hero__bg { display: block; }
+  .hero__img { object-fit: contain; }
+}
 .hero__shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,24,31,0.3) 0%, rgba(20,24,31,0) 28%, rgba(20,24,31,0.55) 55%, rgba(20,24,31,0.88) 100%); }
 .hero__tag { position: absolute; right: 16px; top: 16px; background: rgba(20,24,31,0.7); color: #FFFFFF; font-size: 12px; padding: 4px 8px; border-radius: 4px; }
 .hero__inner { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 36px; }
