@@ -39,52 +39,94 @@
   menu.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
 
   /* ---------- S1 Hero: scenes + worry check-out ticket ---------- */
-  var heroImg = $('hero-img');
-  var heroBg = $('hero-bg');
-  heroImg.addEventListener('error', function () { heroImg.classList.add('is-missing'); });
-  heroImg.addEventListener('load', function () { heroImg.classList.remove('is-missing'); });
+  // 장면마다 레이어(흐린 배경 + 선명한 사진)를 겹쳐 두고 새 장면을 위에서 페이드인.
+  // 이전 장면은 아래에 그대로 남아 있어서 전환 중간에 화면이 어두워지지 않음.
+  var hero = $('top');
+  var media = $('hero-media');
+  var layers = [media.firstElementChild];
+  D.scenes.slice(1).forEach(function (s) {
+    var l = document.createElement('div');
+    l.className = 'hero__layer';
+    l.setAttribute('aria-hidden', 'true');
+    l.innerHTML = '<img class="hero__bg" alt="" aria-hidden="true" decoding="async">' +
+      '<img class="hero__img" alt="' + esc(s.alt) + '" decoding="async" style="object-position:' + esc(s.pos) + '">';
+    media.appendChild(l);
+    layers.push(l);
+  });
+  // 첫 화면 로딩을 방해하지 않도록 나머지 장면 사진은 페이지 로드 뒤에 불러옴
+  function loadRest() {
+    layers.forEach(function (l, i) {
+      l.querySelectorAll('img').forEach(function (img) { if (!img.getAttribute('src')) img.src = D.scenes[i].src; });
+    });
+  }
+  if (document.readyState === 'complete') loadRest(); else window.addEventListener('load', loadRest);
+  media.addEventListener('error', function (e) { if (e.target.classList.contains('hero__img')) e.target.classList.add('is-missing'); }, true);
+  media.addEventListener('load', function (e) { if (e.target.classList.contains('hero__img')) e.target.classList.remove('is-missing'); }, true);
 
   var bars = $('scene-bars');
   bars.innerHTML = D.scenes.map(function () { return '<span></span>'; }).join('');
+  var caption = $('hero-caption');
   var scene = 0;
   var paused = reduce;
-  function renderScene() {
-    var s = D.scenes[scene];
-    heroImg.src = s.src;
-    heroBg.src = s.src;
-    heroImg.alt = s.alt;
-    heroImg.style.objectPosition = s.pos;
-    $('hero-caption').textContent = s.caption;
-    Array.prototype.forEach.call(bars.children, function (b, i) { b.classList.toggle('is-on', i === scene); });
+  var capTimer;
+  function renderScene(prev) {
+    loadRest();
+    layers.forEach(function (l, i) {
+      l.classList.toggle('is-on', i === scene);
+      l.classList.toggle('is-prev', i === prev);
+      if (i === scene) l.removeAttribute('aria-hidden'); else l.setAttribute('aria-hidden', 'true');
+    });
+    // 캡션: 살짝 내려가며 사라졌다가 새 문구로 올라옴
+    clearTimeout(capTimer);
+    if (reduce || prev < 0) {
+      caption.textContent = D.scenes[scene].caption;
+    } else {
+      caption.classList.add('is-out');
+      capTimer = setTimeout(function () {
+        caption.textContent = D.scenes[scene].caption;
+        caption.classList.remove('is-out');
+      }, 260);
+    }
+    // 진행 막대: 현재 칸이 5초 동안 차오르고, 다 차면 다음 장면으로
+    Array.prototype.forEach.call(bars.children, function (b, i) {
+      b.classList.remove('is-on');
+      b.classList.toggle('is-done', i < scene);
+    });
+    void bars.offsetWidth; // 같은 칸이어도 애니메이션을 처음부터 다시 시작
+    bars.children[scene].classList.add('is-on');
+    remain = SCENE_MS;
+    schedule();
   }
-  renderScene();
+  // 자동 넘김 타이머: 일시정지하면 남은 시간을 기억했다가 이어서 진행 (막대 애니메이션과 같은 5초)
+  var SCENE_MS = 5000, remain = SCENE_MS, startedAt = 0, autoTimer;
+  function schedule() {
+    clearTimeout(autoTimer);
+    if (reduce || paused) return;
+    startedAt = Date.now();
+    autoTimer = setTimeout(function () { goScene(1); }, remain);
+  }
 
   var pauseBtn = $('pause-btn');
   function renderPause() {
     pauseBtn.classList.toggle('is-paused', paused);
+    hero.classList.toggle('is-paused', paused);
     pauseBtn.setAttribute('aria-label', paused ? '배경 영상 재생' : '배경 영상 일시정지');
   }
   renderPause();
-  pauseBtn.addEventListener('click', function () { paused = !paused; renderPause(); });
-  var sceneTimer;
-  function startSceneTimer() {
-    if (reduce) return;
-    clearInterval(sceneTimer);
-    sceneTimer = setInterval(function () {
-      if (paused) return;
-      scene = (scene + 1) % D.scenes.length;
-      renderScene();
-    }, 5000);
-  }
-  // 이전/다음 버튼·스와이프로 장면 이동 (수동 이동 후 5초 타이머 다시 시작)
+  pauseBtn.addEventListener('click', function () {
+    paused = !paused;
+    if (paused) { clearTimeout(autoTimer); remain = Math.max(0, remain - (Date.now() - startedAt)); }
+    renderPause();
+    schedule();
+  });
+  // 이전/다음 버튼·스와이프·자동 넘김이 모두 여기로 모임
   function goScene(dir) {
     var n = D.scenes.length;
+    var prev = scene;
     scene = (scene + dir + n) % n;
-    renderScene();
-    startSceneTimer();
+    renderScene(prev);
   }
-  startSceneTimer();
-  var hero = $('top');
+  renderScene(-1);
   hero.addEventListener('click', function (e) {
     var b = e.target.closest('[data-scene]');
     if (b) goScene(Number(b.dataset.scene));
