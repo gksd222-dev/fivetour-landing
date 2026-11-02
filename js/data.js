@@ -67,10 +67,10 @@ window.LANDING_DATA = {
 
   reviews: [
     { img: 'ph-fuji', alt: '벚꽃과 후지산', caption: '오전 10:15 · 후지요시다', head: '★ 5.0 · 하나팩 2.0 도쿄·후지산', text: '쇼핑 일정이 없어서 하루가 온전히 제 것이었어요.', by: '@trip_minji · 2026년 10월 (예시)' },
-    { img: 'ph-colo', alt: '노을 진 콜로세움', caption: '오후 6:20 · 로마', head: '#나답게하나투어', text: '콜로세움 앞 노을, 가이드님이 알려준 시간 그대로.', by: '@walk_rome · 인스타그램 (예시)' },
+    { img: 'ph-colo', alt: '노을 진 콜로세움', caption: '오후 6:20 · 로마', head: '#나답게다섯투어', text: '콜로세움 앞 노을, 가이드님이 알려준 시간 그대로.', by: '@walk_rome · 인스타그램 (예시)' },
     { img: 'ph-swiss', alt: '스위스 산골 마을', caption: '오전 7:20 · 알프스 마을', head: '★ 4.9 · 하나팩 2.0 스위스 일주', text: '시내 중심 호텔이라 아침 산책이 쉬웠어요.', by: '@slow_alps · 2026년 9월 (예시)' },
     { img: 'ph-taj', alt: '타지마할', caption: '오전 7:30 · 아그라', head: '★ 4.8 · 우리끼리 인도 7일', text: '우리 가족만 다녀서 부모님도 편하셨어요.', by: '@hana_family · 2026년 8월 (예시)' },
-    { img: 'ph-giza', alt: '기자 피라미드', caption: '오후 5:10 · 기자', head: '#나답게하나투어', text: '팁 걱정 없이 사막 노을만 보면 됐던 날.', by: '@desert_sun · 인스타그램 (예시)' },
+    { img: 'ph-giza', alt: '기자 피라미드', caption: '오후 5:10 · 기자', head: '#나답게다섯투어', text: '팁 걱정 없이 사막 노을만 보면 됐던 날.', by: '@desert_sun · 인스타그램 (예시)' },
     { img: 'ph-colo', alt: '로마 돌길', caption: '오후 8:00 · 트라스테베레', head: '★ 4.7 · 밍글링 로마 미식', text: '취향 같은 사람들과 먹고 걷는 일주일이었어요.', by: '@pasta_lover · 2026년 7월 (예시)' }
   ],
 

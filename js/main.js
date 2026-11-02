@@ -239,7 +239,7 @@
         '<div class="result__card">' +
         '<div class="ph ' + r.img + ' result__img" role="img" aria-label="' + esc(r.name) + ' 대표 장면"></div>' +
         '<div class="result__body">' +
-        '<div class="mono-row"><span>MY TRAVEL TYPE</span><span>HANATOUR</span></div>' +
+        '<div class="mono-row"><span>MY TRAVEL TYPE</span><span>DASEOTOUR</span></div>' +
         '<div class="dash"></div>' +
         '<h3 tabindex="-1">' + esc(r.name) + '</h3>' +
         '<p class="body">' + esc(r.desc) + '</p>' +
